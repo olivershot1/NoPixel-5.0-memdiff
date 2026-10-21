@@ -1,0 +1,40 @@
+:root { --bg:#050a08; --edge:#2a6b4a; --dim:#2f9a62; --hot:#46ffb0; --amber:#e0b83a; --red:#ff4d5e; }
+* { box-sizing: border-box; margin: 0; }
+html, body { height: 100%; background: transparent; overflow: hidden; user-select: none;
+  font-family: Consolas, "Lucida Console", monospace; color: var(--hot); }
+.screen { height: 100%; display: flex; align-items: center; justify-content: center; padding: 12px; }
+.term { position: relative; min-height: min(540px, 94vh); background: var(--bg); border: 1px solid var(--edge); padding: 18px 22px 14px; }
+.top { display: flex; justify-content: space-between; font-size: 15px; font-weight: bold; letter-spacing: .04em;
+  border-bottom: 1px solid var(--edge); padding-bottom: 10px; }
+.top span:last-child { font-size: 11px; font-weight: normal; color: var(--dim); }
+.sub { font-size: 11px; color: var(--dim); margin: 8px 0 12px; min-height: 14px; }
+.panes { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.pane { border: 1px solid var(--edge); padding: 12px 16px 16px; }
+.pane h2 { font-size: 13px; color: var(--amber); margin-bottom: 10px; }
+.row { display: flex; align-items: center; height: 24px; font-size: 13px; }
+.addr { width: 64px; color: var(--dim); }
+.b { flex: 1 1 0; min-width: 0; max-width: 34px; height: 20px; line-height: 20px; text-align: center; color: var(--dim); cursor: pointer; }
+.b.cur { background: var(--hot); color: var(--bg); }
+.b.ghost { outline: 1px solid var(--dim); }
+.b.found { background: var(--amber); color: var(--bg); }
+.b.miss { color: var(--red); text-decoration: line-through; }
+.stat { font-size: 15px; margin: 16px 0 8px; display: flex; gap: 28px; }
+.track { height: 3px; background: #10251c; }
+.bar { height: 100%; background: var(--amber); }
+.hint { font-size: 10px; color: var(--dim); margin-top: 10px; }
+.intro .ln, .intro { font-size: 12px; }
+.intro { padding-top: 10px; line-height: 2; white-space: pre-wrap; overflow-wrap: anywhere; }
+.intro .ln { color: #37c784; } .intro b { color: var(--hot); }
+.legal { position: absolute; left: 22px; bottom: 12px; font-size: 10px; color: var(--dim); }
+.fail { color: var(--red); }
+.failTitle { font-size: 24px; margin: 26px 0 14px; letter-spacing: .02em; }
+.failLine { font-size: 12px; font-weight: bold; margin-bottom: 14px; }
+.failSub { font-size: 10px; opacity: .85; }
+.dev { position: fixed; top: 8px; left: 8px; z-index: 5; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 11px; color: var(--dim); }
+.dev input { width: 44px; font: inherit; background: var(--bg); color: var(--hot); border: 1px solid var(--edge); padding: 4px; }
+.dev button { font: inherit; font-size: 12px; background: var(--hot); color: var(--bg); border: 0; padding: 7px 14px; cursor: pointer; }
+.dev button:focus-visible, .dev input:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+@media (max-width: 700px) {
+  .panes { grid-template-columns: 1fr; gap: 10px; } .pane { padding: 8px 10px; }
+  .row { height: 18px; font-size: 11px; } .b { height: 16px; line-height: 16px; } .addr { width: 52px; }
+}
